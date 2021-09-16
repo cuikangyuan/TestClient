@@ -89,6 +89,29 @@ public class MainActivity extends AppCompatActivity {
     /**
      * 绑定远程服务
      */
+
+    /***
+     * 09-16 17:12:19.614 23161 23161 I BinderSimple: [ClientActivity] onCreate
+     * 09-16 17:12:23.496 23161 23161 I BinderSimple: [ClientActivity] bindRemoteService
+     * 09-16 17:12:23.511 23096 23096 I BinderSimple: [RemoteService] onCreate
+     * 09-16 17:12:23.511 23096 23096 I BinderSimple: [RemoteService] onBind
+     * 09-16 17:12:23.517 23096 23118 I BinderSimple: [RemoteService] getMyData() data1 = 10, data2=20
+     * 09-16 17:12:23.518 23096 23118 I BinderSimple: [RemoteService] getPid()=23096
+     * 09-16 17:12:23.518 23161 23161 I BinderSimple: [ClientActivity] onServiceConnected  pid=23096, data1 = 10, data2=20
+     */
+
+
+    /**
+     * 09-16 17:42:45.269  6749  6749 I BinderSimple: [ClientActivity] onCreate
+     * 09-16 17:42:47.143  6749  6749 I BinderSimple: [ClientActivity] bindRemoteService
+     * 09-16 17:42:47.159  6287  6287 I BinderSimple: [RemoteService] onCreate
+     * 09-16 17:42:47.160  6287  6287 I BinderSimple: [RemoteService] onBind
+     * 09-16 17:42:47.172  6287  6321 I BinderSimple: [RemoteService] onTransact() code： 2
+     * 09-16 17:42:47.173  6287  6321 I BinderSimple: [RemoteService] getMyData() data1 = 10, data2=20
+     * 09-16 17:42:47.174  6287  6321 I BinderSimple: [RemoteService] onTransact() code： 1
+     * 09-16 17:42:47.174  6287  6321 I BinderSimple: [RemoteService] getPid()=6287
+     * 09-16 17:42:47.174  6749  6749 I BinderSimple: [ClientActivity] onServiceConnected  pid=6287, data1 = 10, data2=20
+     * */
     private void bindRemoteService(){
         Log.i(TAG, "[ClientActivity] bindRemoteService");
         //Intent intent = new Intent(this, RemoteService.class);
@@ -104,6 +127,11 @@ public class MainActivity extends AppCompatActivity {
     /**
      * 解除绑定远程服务
      */
+    /**
+     * 09-16 17:13:33.707 23161 23161 I BinderSimple: [ClientActivity] unbindRemoteService ==>
+     * 09-16 17:13:33.717 23096 23096 I BinderSimple: [RemoteService] onUnbind
+     * 09-16 17:13:33.719 23096 23096 I BinderSimple: [RemoteService] onDestroy
+     * */
     private void unbindRemoteService(){
         if(!mIsBound){
             return;
